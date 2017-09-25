@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: skills-web
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: skills
+        tier: frontend
+    spec:
+      containers:
+      - name: skills-web
+        image: localhost:5000/skills/web
+        env:
+        - name: APP_HOST
+          value: localhost
+        - name: GRAPHQL_HOST
+          value: gateway-api.default.svc.cluster.local
+        - name: GRAPHQL_PORT
+          value: 3000
+        - name: GET_HOSTS_FROM
+          value: dns
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 5000
