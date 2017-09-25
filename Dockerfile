@@ -16,4 +16,4 @@ ADD . /usr/src/app
 RUN yarn build
 
 EXPOSE 5000
-CMD [ "serve", "-s", "build" ]
+CMD [ "serve", "-s", "-S", "build" ]
