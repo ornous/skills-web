@@ -1,0 +1,20 @@
+jobs:
+- name: publish
+  public: true
+  serial: true
+  plan:
+  - get: skills-web
+  - put: skills-web-docker-image
+    params:
+      build: resource-tutorial/35_push_docker_image/docker
+
+resources:
+- name: skills-web
+  type: git
+  source:
+    uri: git@gitlab.com:ornous/skills/web.git
+
+- name: skills-web-docker-image
+  type: docker-image
+  source:
+    repository: http://10.0.0.140:80/skills/web
