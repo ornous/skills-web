@@ -114,6 +114,10 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "standard": "^10.0.3"
+    "@storybook/addon-actions": "^3.2.12",
+    "@storybook/addon-links": "^3.2.12",
+    "@storybook/react": "^3.2.12",
+    "jest-styled-components": "^4.7.0",
+    "storybook-addon-specifications": "^2.1.1"
   }
 }
