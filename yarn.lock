@@ -17,7 +17,13 @@
     react-inspector "^2.2.0"
     uuid "^3.1.0"
 
-"@storybook/addon-knobs@^3.2.12":
+"@storybook/addon-backgrounds@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-3.0.0.tgz#f59d55bc66abf3cede54b85b5b03f8153c684da9"
+  dependencies:
+    object-assign "^4.1.0"
+
+"@storybook/addon-knobs@^3.2.0", "@storybook/addon-knobs@^3.2.12":
   version "3.2.12"
   resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-3.2.12.tgz#b944fe59d12b82de9366436b59d67f40ee905a44"
   dependencies:
@@ -171,6 +177,10 @@
 "@types/node@^6.0.46":
   version "6.0.89"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.89.tgz#154be0e6a823760cd6083aa8c48f952e2e63e0b0"
+
+"@types/tinycolor2@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@types/tinycolor2/-/tinycolor2-1.4.0.tgz#77792ebbbe8a1c9b291cb949fafeb7de121c4c6a"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -366,6 +376,10 @@ apollo-link-core@^0.5.0:
     graphql "^0.10.3"
     graphql-tag "^2.4.2"
     zen-observable-ts "^0.4.4"
+
+apollo-storybook-decorator@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/apollo-storybook-decorator/-/apollo-storybook-decorator-0.5.1.tgz#448fecd1c3685123139e0f5d83cc0acccdfa82b8"
 
 app-root-path@^2.0.0:
   version "2.0.1"
@@ -6784,7 +6798,7 @@ querystringify@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
 
-radium@^0.19.0:
+radium@^0.19.0, radium@^0.19.4:
   version "0.19.5"
   resolved "https://registry.yarnpkg.com/radium/-/radium-0.19.5.tgz#2352ffa9c2265ea7c76e07540d9841727f85dbe8"
   dependencies:
@@ -6802,6 +6816,10 @@ raf@^3.3.2:
 railroad-diagrams@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz#eb7e6267548ddedfb899c1b90e57374559cddb7e"
+
+ramda@^0.24.1:
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
 
 randexp@^0.4.2:
   version "0.4.6"
@@ -7908,6 +7926,16 @@ storybook-chrome-screenshot@^0.6.0:
     query-string "^5.0.0"
     sanitize-filename "^1.6.1"
     util-inspect "^0.1.8"
+
+storybook-host@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/storybook-host/-/storybook-host-4.1.4.tgz#b8dd0b5bf791282eedb2d7eb33470c643d626405"
+  dependencies:
+    "@storybook/addon-knobs" "^3.2.0"
+    "@types/tinycolor2" "^1.4.0"
+    radium "^0.19.4"
+    ramda "^0.24.1"
+    tinycolor2 "^1.4.1"
 
 storybook-readme@^3.0.6:
   version "3.0.6"

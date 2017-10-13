@@ -119,12 +119,16 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.12",
+    "@storybook/addon-backgrounds": "^3.0.0",
     "@storybook/addon-links": "^3.2.12",
+    "@storybook/addons": "^3.2.12",
     "@storybook/react": "^3.2.12",
+    "apollo-storybook-decorator": "^0.5.1",
     "jest-styled-components": "^4.7.0",
     "storybook-addon-jsx": "^4.2.0",
     "storybook-addon-specifications": "^2.1.1",
     "storybook-chrome-screenshot": "^0.6.0",
+    "storybook-host": "^4.1.4",
     "storybook-readme": "^3.0.6"
   }
 }
