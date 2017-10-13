@@ -56,7 +56,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "prepush": "yarn test",
+    "prepush": "CI=true yarn test",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "lint": "prettier-standard --fix",
@@ -110,14 +110,13 @@
       "react-app"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier-standard",
+      "git add"
+    ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.2.12",
-    "@storybook/addon-links": "^3.2.12",
-    "@storybook/react": "^3.2.12",
-    "jest-styled-components": "^4.7.0",
-    "storybook-addon-specifications": "^2.1.1"
+    "jest-styled-components": "^4.7.0"
   }
 }
