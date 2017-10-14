@@ -5,7 +5,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY package.json yarn.lock ./
-RUN yarn install && yarn lint
+RUN apk add --no-cache make gcc g++ python && \
+    yarn install && \
+    apk del make gcc g++ python && \
+    yarn lint
 
 FROM dependencies as builder
 ENV NODE_ENV "production"
