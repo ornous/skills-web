@@ -4,17 +4,20 @@ jobs:
   serial: true
   plan:
   - get: skills-web
+    trigger: true
   - put: skills-web-docker-image
     params:
-      build: resource-tutorial/35_push_docker_image/docker
+      build: skills-web
 
 resources:
 - name: skills-web
   type: git
   source:
     uri: git@gitlab.com:ornous/skills/web.git
+    branch: master
+    private_key: {{gitlab-private-key}}
 
 - name: skills-web-docker-image
   type: docker-image
   source:
-    repository: http://10.0.0.140:80/skills/web
+    repository: senforsce/skills-web
