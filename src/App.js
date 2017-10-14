@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import logo from './logo.svg'
 
-import SkillsList from './containers/SkillsList'
+import SkillsList from './components/SkillsListContainer'
 
 const Wrapper = styled.div`
   text-align: center;
@@ -57,7 +57,10 @@ const Footer = styled.div`
   background-color: tomato;
 `
 
-const Intro = styled.p`font-size: large;`
+const Intro = styled.p`
+  font-size: large;
+  text-align: center;
+`
 
 class App extends Component {
   render () {
@@ -66,7 +69,16 @@ class App extends Component {
         <Header>
           <RotatingLogo src={logo} className='App-logo' alt='logo' />
         </Header>
-        <LeftSideBar>To the left (bis)</LeftSideBar>
+        <LeftSideBar>
+          To the left (bis):
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+          </ul>
+        </LeftSideBar>
         <Main>
           <Intro>A very thoughtful intro lies here</Intro>
           Ozzy's Skills: <SkillsList />

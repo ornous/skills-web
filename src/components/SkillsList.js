@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
-import Skill from './Skill'
+import Styled from 'styled-components'
+
+const Skill = Styled.div`
+  color: black;
+  background-color: yellow;
+`
 
 class SkillsList extends Component {
   render () {
-    return this.props.skills.map(skill => <Skill {...skill} />)
+    return this.props.skills.map(skill => (
+      <Skill key={skill.id}>{skill.name}</Skill>
+    ))
   }
 }
 
