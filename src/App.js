@@ -4,8 +4,40 @@ import logo from './logo.svg'
 
 import SkillsList from './components/SkillsListContainer'
 
+class App extends Component {
+  render () {
+    return (
+      <Wrapper>
+        <Header>
+          <RotatingLogo src={logo} className='App-logo' alt='logo' />
+        </Header>
+        <LeftSideBar>
+          <h3>To the left (bis)</h3>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+          </ul>
+        </LeftSideBar>
+        <Main>
+          <Intro>A very thoughtful intro lies here</Intro>
+          Ozzy's Skills: <SkillsList />
+        </Main>
+        <Footer>
+          <p>
+            I am usually at the bottom of the page linking to things no one
+            cares about until they do. I am an unsung here that most hate In
+            football, I am more common than a header What am I?
+          </p>
+        </Footer>
+      </Wrapper>
+    )
+  }
+}
+
 const Wrapper = styled.div`
-  text-align: center;
   max-width: 940px;
   margin: 0 auto;
   display: grid;
@@ -41,13 +73,14 @@ const rotate360 = keyframes`
 `
 const RotatingLogo = Logo.extend`animation: ${rotate360} infinite 20s linear;`
 
-const Header = styled.div`
+const Header = styled.span`
   background-color: #222;
   padding: 20px;
   color: white;
   grid-area: head;
   line-height: 100%;
   vertical-align: middle;
+  text-align: center;
 `
 
 const Footer = styled.div`
@@ -61,38 +94,5 @@ const Intro = styled.p`
   font-size: large;
   text-align: center;
 `
-
-class App extends Component {
-  render () {
-    return (
-      <Wrapper>
-        <Header>
-          <RotatingLogo src={logo} className='App-logo' alt='logo' />
-        </Header>
-        <LeftSideBar>
-          To the left (bis):
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-          </ul>
-        </LeftSideBar>
-        <Main>
-          <Intro>A very thoughtful intro lies here</Intro>
-          Ozzy's Skills: <SkillsList />
-        </Main>
-        <Footer>
-          <p>
-            I am usually at the bottom of the page linking to things no one
-            cares about until they do. I am an unsung here that most hate In
-            football, I am more common than a header What am I?
-          </p>
-        </Footer>
-      </Wrapper>
-    )
-  }
-}
 
 export default App
