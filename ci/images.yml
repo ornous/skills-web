@@ -8,15 +8,13 @@ jobs:
   - aggregate:
     - put: artillery
       params:
-        build: repo/ci/artillery.Dockerfile
-        cache_tag: latest
-        cache: true
+        build: repo/ci
+        dockerfile: repo/ci/artillery.Dockerfile
     - put: cucumber
       params:
-        build: repo/ci/cucumber.Dockerfile
+        build: repo/ci
+        dockerfile: repo/ci/cucumber.Dockerfile
         tag_as_latest: true
-        cache_tag: latest
-        cache: true
 
 resources:
 - name: repo
