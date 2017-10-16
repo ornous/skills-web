@@ -1,0 +1,41 @@
+jobs:
+- name: build-images
+  public: true
+  serial: true
+  plan:
+  - get: repo
+    trigger: true
+  - aggregate:
+    - put: artillery
+      params:
+        build: repo/ci/artillery.Dockerfile
+        cache_tag: latest
+        cache: true
+    - put: cucumber
+      params:
+        build: repo/ci/cucumber.Dockerfile
+        tag_as_latest: true
+        cache_tag: latest
+        cache: true
+
+resources:
+- name: repo
+  type: git
+  source:
+    uri: git@gitlab.com:ornous/skills/web.git
+    branch: master
+    private_key: {{gitlab-private-key}}
+
+- name: artillery
+  type: docker-image
+  source:
+    repository: senforsce/artillery
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+
+- name: cucumber
+  type: docker-image
+  source:
+    repository: senforsce/cucumber
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o pipefail
+set -ex
+
+kubectl update deployment skills-web set image="skills-web:{version}"
