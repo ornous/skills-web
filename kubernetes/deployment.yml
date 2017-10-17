@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: skills-web
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: skills-web
-        image: localhost:5000/skills/web:c95cd34
+        image: registry.hub.docker.com/senforsce/skills-web:latest
         env:
         - name: APP_HOST
           value: localhost

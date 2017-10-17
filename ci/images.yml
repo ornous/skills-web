@@ -10,11 +10,15 @@ jobs:
       params:
         build: repo/ci
         dockerfile: repo/ci/artillery.Dockerfile
+        cache_tag: latest
+        cache: true
     - put: cucumber
       params:
         build: repo/ci
         dockerfile: repo/ci/cucumber.Dockerfile
         tag_as_latest: true
+        cache_tag: latest
+        cache: true
 
 resources:
 - name: repo

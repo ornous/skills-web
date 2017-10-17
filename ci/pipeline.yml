@@ -14,18 +14,38 @@ jobs:
       cache: true
   - put: version
     params: {bump: minor}
+
+- name: uat
+  public: true
+  serial: true
+  plan:
+  - aggregate:
+    - get: repo
+      passed: [build]
+    - get: version
+      passed: [build]
+      trigger: true
+    - get: skills-web-image
+      passed: [build]
+      trigger: true
+  - put: staging
+    params:
+      image_name: repo/ci/DOCKER_IMAGE_NAME
+      image_tag: version/number
+
 - name: stage
   public: true
   serial: true
   plan:
-  - get: repo
-    passed: [build]
-  - get: version
-    passed: [build]
-    trigger: true
-  - get: skills-web-image
-    passed: [build]
-    trigger: true
+  - aggregate:
+    - get: repo
+      passed: [build]
+    - get: version
+      passed: [build]
+      trigger: true
+    - get: skills-web-image
+      passed: [build]
+      trigger: true
   - put: staging
     params:
       image_name: repo/ci/DOCKER_IMAGE_NAME
