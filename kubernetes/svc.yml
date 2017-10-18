@@ -2,12 +2,13 @@ kind: Service
 apiVersion: v1
 metadata:
   name: skills-web
+  labels:
+    app: skills
+    tier: frontend
 spec:
-  type: NodePort
   ports:
-    - port: 5000
-      targetPort: 5000
-      name: reactjs
+    - name: http
+      port: 5000
   selector:
     app: skills
     tier: frontend

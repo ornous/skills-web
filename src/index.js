@@ -7,7 +7,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:3001/graphql'
+  uri: 'http://skills-api/graphql'
 })
 
 const client = new ApolloClient({
