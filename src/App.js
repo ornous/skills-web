@@ -1,38 +1,65 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import logo from './logo.svg'
 
 import SkillsList from './components/SkillsListContainer'
+import UsersPage from './components/UsersPage'
 
 class App extends Component {
   render () {
     return (
-      <Wrapper>
-        <Header>
-          <RotatingLogo src={logo} className='App-logo' alt='logo' />
-        </Header>
-        <LeftSideBar>
-          <h3>To the left (bis)</h3>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
-          </ul>
-        </LeftSideBar>
-        <Main>
-          <Intro>A very thoughtful intro lies here</Intro>
-          Ozzy's Skills: <SkillsList />
-        </Main>
-        <Footer>
-          <p>
-            I am usually at the bottom of the page linking to things no one
-            cares about until they do. I am an unsung here that most hate In
-            football, I am more common than a header What am I?
-          </p>
-        </Footer>
-      </Wrapper>
+      <Router>
+        <Wrapper>
+          <Header>
+            <Link to='/'>
+              <RotatingLogo src={logo} className='App-logo' alt='logo' />
+            </Link>
+          </Header>
+          <LeftSideBar>
+            <h3>To the left (bis)</h3>
+            <ul>
+              <li>
+                <Link to='/'>Home</Link>
+              </li>
+              <li>
+                <Link to='/users'>Users</Link>
+              </li>
+              <li>
+                <Link to='/about'>About Us</Link>
+              </li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+              <li>Item 4</li>
+              <li>Item 5</li>
+            </ul>
+          </LeftSideBar>
+          <Main>
+            <Route
+              exact
+              path='/'
+              render={() => (
+                <div>
+                  <Intro>A very thoughtful intro lies here</Intro>
+                  Ozzy's Skills: <SkillsList />
+                </div>
+              )}
+            />
+            <Route
+              path='/about'
+              render={() => <Intro>This says something about us.</Intro>}
+            />
+            <Route path='/users' component={UsersPage} />
+          </Main>
+          <Footer>
+            <p>
+              I am usually at the bottom of the page linking to things no one
+              cares about until they do. I am an unsung here that most hate In
+              football, I am more common than a header What am I?
+            </p>
+          </Footer>
+        </Wrapper>
+      </Router>
     )
   }
 }
