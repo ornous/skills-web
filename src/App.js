@@ -28,10 +28,6 @@ class App extends Component {
               <li>
                 <Link to='/about'>About Us</Link>
               </li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-              <li>Item 4</li>
-              <li>Item 5</li>
             </ul>
           </LeftSideBar>
           <Main>
@@ -70,16 +66,50 @@ const Wrapper = styled.div`
   display: grid;
   grid-template: 'head head' 'nav  main' 'nav  foot';
   grid-template-columns: 180px 1fr;
-  grid-template-rows: 150px auto 150px;
+  grid-template-rows: 150px 1fr 150px;
   grid-gap: 10px;
   height: 100vh;
   width: 100vw;
+  @media screen and (max-width: 600px) {
+    grid-gap: 0;
+    grid-template: 'head' 'nav' 'main' 'foot';
+    grid-template-rows: 40px 50px 1fr 80px;
+  }
 `
 
 const LeftSideBar = styled.div`
   background-color: palevioletred;
   grid-area: nav;
   padding: 10px;
+  @media screen and (max-width: 600px) {
+    padding: 0;
+    h3 {
+      display: none;
+    }
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      li {
+        flex-grow: 1;
+        flex-basis: 0;
+        list-style-type: none;
+        background-color: pink;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #ccc;
+        text-align: center;
+        a {
+          text-decoration: none;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+    }
+  }
 `
 
 const Main = styled.div`
@@ -88,7 +118,10 @@ const Main = styled.div`
   grid-area: main;
 `
 
-const Logo = styled.img`height: 80px;`
+const Logo = styled.img`
+  height: 40px;
+  line-height: 40px;
+`
 
 const rotate360 = keyframes`
   from {
@@ -100,9 +133,13 @@ const rotate360 = keyframes`
 `
 const RotatingLogo = Logo.extend`animation: ${rotate360} infinite 20s linear;`
 
-const Header = styled.span`
+const Header = styled.div`
+  overflow: hidden;
   background-color: #222;
   padding: 20px;
+  @media screen and (max-width: 600px) {
+    padding: 0;
+  }
   color: white;
   grid-area: head;
   line-height: 100%;
@@ -113,6 +150,13 @@ const Header = styled.span`
 const Footer = styled.div`
   grid-area: foot;
   padding: 10px;
+  @media screen and (max-width: 600px) {
+    padding: 5px;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
   vertical-align: middle;
   background-color: tomato;
 `
