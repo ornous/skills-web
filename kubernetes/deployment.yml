@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: skills-web
-        image: registry.hub.docker.com/senforsce/skills-web:0.5.0
+        image: registry.hub.docker.com/senforsce/skills-web:0.6.0
         env:
         - name: APP_HOST
           value: 0.0.0.0

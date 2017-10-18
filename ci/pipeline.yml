@@ -12,6 +12,7 @@ jobs:
       tag: version/number
       cache_tag: latest
       cache: true
+      tag_as_latest: true
   - put: version
     params: {bump: minor}
 
