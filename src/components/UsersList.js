@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Icon } from 'semantic-ui-react'
 
 const User = Styled.div`
   color: palevioletred;
