@@ -19,6 +19,10 @@ class SkillsListContainer extends Component {
       )
     }
 
+    if (!people || !people[0] || !people[0].skills) {
+      return 'Unable to find skills for user'
+    }
+
     return <SkillsList skills={people[0].skills} />
   }
 }
