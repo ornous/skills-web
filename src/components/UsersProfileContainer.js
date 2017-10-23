@@ -22,14 +22,14 @@ class UsersListContainer extends Component {
   }
 
   handleCreateSkill (...args) {
-    this.props.createSkill(this.props.data.variables.userId, this.state.value)
+    this.props.createSkill(this.props.userId, this.state.value)
     this.state.value = ''
   }
 
   render () {
-    const { loading, error, people } = this.props.data
+    const { loading, userId, user, error } = this.props
     if (loading) {
-      return <div>Loading user...</div>
+      return <div>Loading user #{userId}</div>
     }
 
     if (error) {
@@ -41,12 +41,6 @@ class UsersListContainer extends Component {
       )
     }
 
-    const user = people[0]
-    const skillNamesDict = ['postgresql', 'react', 'redux', 'nodejs']
-    const randSkillName =
-      skillNamesDict[Math.floor(Math.random() * skillNamesDict.length)]
-
-    const { createSkill, deleteSkill } = this.props
     return (
       <UserProfile>
         <p>First Name: {user.firstName}</p>
@@ -58,7 +52,7 @@ class UsersListContainer extends Component {
             <li key={skill.id}>
               {skill.name + ' '}
               <Icon
-                onClick={() => deleteSkill(user.id, skill.id)}
+                onClick={() => this.props.deleteSkill(user.id, skill.id)}
                 name='cancel'
               />
             </li>
@@ -116,7 +110,22 @@ const createSkill = gql`
 
 export default compose(
   graphql(usersQuery, {
-    options: ({ match: { params: { userId } } }) => ({ variables: { userId } })
+    options: ({ match: { params: { userId } } }) => ({ variables: { userId } }),
+    props: ({ data }) => {
+      if (data.loading) {
+        return {
+          userId: data.variables.userId,
+          loading: data.loading
+        }
+      }
+
+      return {
+        loading: data.loading,
+        error: data.error,
+        userId: data.variables.userId,
+        user: data.people[0]
+      }
+    }
   }),
   graphql(deleteSkill, {
     name: 'deleteSkill',
