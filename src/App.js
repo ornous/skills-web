@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import logo from './logo.svg'
 
+import { media } from './utils/style.js'
+
 import SkillsList from './components/SkillsListContainer'
 import UsersPage from './components/UsersPage'
 
@@ -70,18 +72,18 @@ const Wrapper = styled.div`
   grid-gap: 10px;
   height: 100vh;
   width: 100vw;
-  @media screen and (max-width: 600px) {
+  ${media.phone`
     grid-gap: 0;
     grid-template: 'head' 'nav' 'main' 'foot';
     grid-template-rows: 40px 50px 1fr 80px;
-  }
+  `};
 `
 
 const LeftSideBar = styled.div`
   background-color: palevioletred;
   grid-area: nav;
   padding: 10px;
-  @media screen and (max-width: 600px) {
+  ${media.phone`
     padding: 0;
     h3 {
       display: none;
@@ -109,7 +111,7 @@ const LeftSideBar = styled.div`
         }
       }
     }
-  }
+  `};
 `
 
 const Main = styled.div`
@@ -131,15 +133,17 @@ const rotate360 = keyframes`
     transform: rotate(360deg);
   }
 `
-const RotatingLogo = Logo.extend`animation: ${rotate360} infinite 20s linear;`
+const RotatingLogo = Logo.extend`
+  animation: ${rotate360} infinite 20s linear;
+`
 
 const Header = styled.div`
   overflow: hidden;
   background-color: #222;
   padding: 20px;
-  @media screen and (max-width: 600px) {
+  ${media.phone`
     padding: 0;
-  }
+  `};
   color: white;
   grid-area: head;
   line-height: 100%;
@@ -150,9 +154,9 @@ const Header = styled.div`
 const Footer = styled.div`
   grid-area: foot;
   padding: 10px;
-  @media screen and (max-width: 600px) {
+  ${media.phone`
     padding: 5px;
-  }
+  `};
   p {
     padding: 0;
     margin: 0;
