@@ -34,6 +34,7 @@ const newUsersSubscription = gql`
       email
       firstName
       lastName
+      createAt
     }
   }
 `
