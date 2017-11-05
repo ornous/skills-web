@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e -u
+
+if [ -z ${1+x} ]; then
+  echo "Missing argument 1: storybook port"
+  exit 127
+fi
+
+STORYBOOK_PORT=$1
+
+storybook-chrome-screenshot -p ${STORYBOOK_PORT} -c .storybook

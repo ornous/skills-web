@@ -71,7 +71,7 @@
     "build": "node scripts/build.js",
     "lint": "prettier-standard --fix",
     "test": "node scripts/test.js --env=jsdom",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook",
+    "stories-screenshots": "./scripts/generate-stories-screenshots 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
