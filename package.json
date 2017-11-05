@@ -133,6 +133,7 @@
     "@storybook/addon-links": "^3.2.14",
     "@storybook/addons": "^3.2.14",
     "@storybook/react": "^3.2.14",
+    "install-peers": "^1.0.2",
     "jest-styled-components": "^4.9.0",
     "storybook-addon-jsx": "^5.0.0",
     "storybook-addon-specifications": "^2.1.1",
