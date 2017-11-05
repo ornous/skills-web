@@ -65,15 +65,16 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "build": "node scripts/build.js",
+    "build-storybook": "build-storybook",
+    "changelog": "./scripts/generate-changelog",
+    "lint": "prettier-standard --fix",
     "precommit": "lint-staged",
     "prepush": "CI=true yarn test",
     "start": "nodemon scripts/start.js",
-    "build": "node scripts/build.js",
-    "lint": "prettier-standard --fix",
-    "test": "node scripts/test.js --env=jsdom",
     "stories-screenshots": "./scripts/generate-stories-screenshots 6006",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
