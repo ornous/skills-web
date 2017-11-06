@@ -71,7 +71,7 @@
     "build-storybook": "build-storybook",
     "changelog": "./scripts/generate-changelog",
     "lint": "prettier-standard --fix",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged && CI=true yarn test",
     "prepush": "CI=true yarn test",
     "start": "nodemon scripts/start.js",
     "stories-screenshots": "./scripts/generate-stories-screenshots 6006 __screenshots__",
@@ -108,7 +108,8 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^react-native$": "react-native-web",
+      "^(components|reducers|utils)/(.*)$": "<rootDir>/src/$1/$2"
     },
     "moduleFileExtensions": [
       "web.js",

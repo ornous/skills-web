@@ -21,7 +21,7 @@ class UsersListContainer extends Component {
     this.setState({ value: event.target.value })
   }
 
-  handleCreateSkill (...args) {
+  handleCreateSkill () {
     this.props.createSkill(this.props.userId, this.state.value)
     this.state.value = ''
   }

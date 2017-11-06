@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import logo from './logo.svg'
 
-import { media } from 'utils/style.js'
+import { media } from 'utils/style'
 
 import SkillsList from 'components/SkillsListContainer'
 import UsersPage from 'components/UsersPage'
