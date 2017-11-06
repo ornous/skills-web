@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import logo from './logo.svg'
 
-import { media } from './utils/style.js'
+import { media } from 'utils/style.js'
 
-import SkillsList from './components/SkillsListContainer'
-import UsersPage from './components/UsersPage'
+import SkillsList from 'components/SkillsListContainer'
+import UsersPage from 'components/UsersPage'
 
-class App extends Component {
+class App extends PureComponent {
   render () {
     return (
       <Router>

@@ -10,7 +10,7 @@ import { ApolloProvider } from 'react-apollo'
 
 import './index.css'
 import 'semantic-ui-css/semantic.min.css'
-import App from './App'
+import App from 'components/App'
 import registerServiceWorker from './registerServiceWorker'
 
 // Get this into the environment somehow
