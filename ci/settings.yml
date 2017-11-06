@@ -1,0 +1,5 @@
+---
+concourse-url: http://192.168.0.24:8080
+skills-platform-repo: git@gitlab.com:ornous/skills/platform.git
+skills-api-repo: git@gitlab.com:ornous/skills/api.git
+skills-web-repo: git@gitlab.com:ornous/skills/web.git
