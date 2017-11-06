@@ -72,7 +72,7 @@
     "precommit": "lint-staged",
     "prepush": "CI=true yarn test",
     "start": "nodemon scripts/start.js",
-    "stories-screenshots": "./scripts/generate-stories-screenshots 6006",
+    "stories-screenshots": "./scripts/generate-stories-screenshots 6006 __screenshots__",
     "storybook": "start-storybook -p 6006",
     "test": "node scripts/test.js --env=jsdom"
   },

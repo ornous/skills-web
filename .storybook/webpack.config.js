@@ -10,6 +10,7 @@ module.exports = {
   plugins: [
     // your custom plugins
   ],
+
   module: {
     rules: [
       {
@@ -17,5 +18,10 @@ module.exports = {
         use: 'raw-loader'
       }
     ]
+  },
+  resolve: {
+    alias: {
+      components: require('path').resolve(__dirname, '../src/components')
+    }
   }
 }
