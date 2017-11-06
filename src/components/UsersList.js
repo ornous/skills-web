@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Icon } from 'semantic-ui-react'
 
 const User = Styled.div`
   color: palevioletred;
   margin: 5px;
 `
 
-class UsersList extends Component {
+class UsersList extends PureComponent {
   render () {
     return this.props.users.map(user => (
       <User key={user.id}>
