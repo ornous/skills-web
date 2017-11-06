@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import UsersList from './UsersList'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import UsersList from 'components/UsersList'
 
 class UsersListContainer extends Component {
   componentWillMount () {
@@ -34,7 +34,7 @@ const newUsersSubscription = gql`
       email
       firstName
       lastName
-      createAt
+      createdAt
     }
   }
 `
@@ -46,6 +46,7 @@ const UsersQuery = gql`
       email
       firstName
       lastName
+      createdAt
     }
   }
 `

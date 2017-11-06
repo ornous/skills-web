@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import SkillsList from './SkillsList'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import SkillsList from 'components/SkillsList'
 
 class SkillsListContainer extends Component {
   render () {
