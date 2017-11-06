@@ -9,4 +9,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Edit secrets/.gitignore and .gitattributes to store secrets using git-crypt
 /secrets
+
+# These should move into dist/build folders anyway
+__screenshots__
