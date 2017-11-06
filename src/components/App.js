@@ -5,7 +5,7 @@ import logo from './logo.svg'
 
 import { media } from 'utils/style'
 
-import SkillsList from 'components/SkillsListContainer'
+import SkillsList from 'containers/SkillsList'
 import UsersPage from 'components/UsersPage'
 
 class App extends PureComponent {

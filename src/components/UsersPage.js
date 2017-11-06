@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import UsersList from 'components/UsersListContainer'
-import UsersProfile from 'components/UsersProfileContainer'
+import UsersList from 'containers/UsersList'
+import UsersProfile from 'containers/UsersProfile'
 
 class UsersPage extends PureComponent {
   render () {
