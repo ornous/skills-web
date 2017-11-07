@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
-import { Icon, Input } from 'semantic-ui-react'
+import { Icon, Input, List } from 'semantic-ui-react'
 
 const UserProfile = styled.div`
   background-color: tomato;
@@ -47,26 +47,27 @@ class UsersListContainer extends Component {
         <p>Last Name: {user.lastName}</p>
         <p>Email Address: {user.email}</p>
         Skills:
-        <ul>
+        <List celled horizontal>
           {user.skills.map(skill => (
-            <li key={skill.id}>
+            <List.Item key={skill.id}>
               {skill.name + ' '}
               <Icon
                 onClick={() => this.props.deleteSkill(user.id, skill.id)}
                 name='cancel'
               />
-            </li>
+            </List.Item>
           ))}
-        </ul>
+        </List>
         <Input
-          size='mini'
+          size='tiny'
           action={{
             color: 'teal',
-            labelPosition: 'right',
+            labelPosition: 'left',
             icon: 'plus',
-            content: 'New Skill',
+            content: 'Skill',
             onClick: this.handleCreateSkill.bind(this)
           }}
+          actionPosition='left'
           onChange={this.handleChange.bind(this)}
           value={this.state.value}
           placeholder='Cook Chinese Food'

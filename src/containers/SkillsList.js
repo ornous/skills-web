@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Segment, Loader } from 'semantic-ui-react'
 import SkillsList from 'components/SkillsList'
 
 class SkillsListContainer extends Component {
   render () {
     const { loading, error, people } = this.props.data
     if (loading) {
-      return <div>Loading your skills...</div>
+      return (
+        <Segment>
+          <Loader active />
+
+          <div>Loading your skills...</div>
+        </Segment>
+      )
     }
 
     if (error) {
       return (
-        <div>
+        <Segment>
           Failed to fetch your skills<br />
           {error.message}
-        </div>
+        </Segment>
       )
     }
 

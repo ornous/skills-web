@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable comma-dangle */
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withScreenshot } from 'storybook-chrome-screenshot'
 import Container from 'components/Container'
+import { keyViewports } from 'utils/style'
 
 storiesOf('Container', module)
   .add(
@@ -15,26 +14,6 @@ storiesOf('Container', module)
   .add(
     'with multiple viewport',
     withScreenshot({
-      viewport: [
-        // Mobile
-        {
-          width: 300,
-          height: 420,
-          isMobile: true,
-          hasTouch: true
-        },
-        // Tablet
-        {
-          width: 768,
-          height: 800,
-          isMobile: true,
-          hasTouch: true
-        },
-        // Desktop
-        {
-          width: 1024,
-          height: 768
-        }
-      ]
+      viewport: Object.values(keyViewports)
     })(() => <Container>Multiple Viewport</Container>)
   )

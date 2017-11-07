@@ -1,17 +1,26 @@
 import React, { PureComponent } from 'react'
-import Styled from 'styled-components'
-
-const Skill = Styled.div`
-  color: black;
-  background-color: yellow;
-`
+import PropTypes from 'prop-types'
+import { List } from 'semantic-ui-react'
 
 class SkillsList extends PureComponent {
   render () {
-    return this.props.skills.map(skill => (
-      <Skill key={skill.id}>{skill.name}</Skill>
-    ))
+    return (
+      <List celled horizontal>
+        {this.props.skills.map(skill => (
+          <List.Item key={skill.id}>{skill.name}</List.Item>
+        ))}
+      </List>
+    )
   }
+}
+
+SkillsList.propTypes = {
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    })
+  ).isRequired
 }
 
 export default SkillsList
