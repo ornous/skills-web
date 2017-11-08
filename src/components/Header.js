@@ -8,12 +8,12 @@ const Header = styled.div`
   padding: 0;
   color: white;
   font-size: 1.5rem;
-
   line-height: 100%;
   vertical-align: middle;
   ${media.phone`
     padding: 0;
   `};
+
   nav {
     position: absolute;
     background-color: #1b293a;
@@ -22,6 +22,7 @@ const Header = styled.div`
     width: 100%;
     bottom: 0;
     left: 0;
+
     ul {
       display: flex;
       justify-content: space-around;
@@ -31,19 +32,20 @@ const Header = styled.div`
       padding: 0;
 
       li {
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: 10px;
+        flex: 1 1 10px;
         text-align: center;
+
         a {
           display: block;
           width: 100%;
           height: 100%;
           padding: 5px;
           color: ${props => props.theme.body.background};
+
           &:hover {
             background-color: ${props => props.theme.secondary};
           }
+
           &.active {
             background-color: ${props => props.theme.secondary};
           }

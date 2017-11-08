@@ -70,7 +70,9 @@
     "build": "node scripts/build.js",
     "build-storybook": "build-storybook",
     "changelog": "./scripts/generate-changelog",
-    "lint": "prettier-standard --fix",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:js": "prettier-standard --fix",
+    "lint:css": "stylelint src/**/*.js",
     "precommit": "lint-staged && CI=true yarn test",
     "prepush": "CI=true yarn test",
     "start": "nodemon scripts/start.js",
@@ -143,6 +145,10 @@
     "storybook-addon-specifications": "^2.1.1",
     "storybook-chrome-screenshot": "^0.6.1",
     "storybook-host": "^4.1.4",
-    "storybook-readme": "^3.1.1"
+    "storybook-readme": "^3.1.1",
+    "stylelint": "^8.2.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.0.0"
   }
 }

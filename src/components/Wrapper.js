@@ -18,8 +18,7 @@ const Wrapper = styled.div`
   grid-template: 'head' 'main' 'foot';
   grid-template-columns: 1fr;
   grid-template-rows: 100px auto 120px;
-  grid-row-gap: 0px;
-  grid-column-gap: 10px;
+  grid-gap: 0 10px;
   animation: ${fadeIn} 0.1s linear;
   min-height: 100vh;
   width: 100vw;
