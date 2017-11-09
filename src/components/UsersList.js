@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 
@@ -29,14 +30,13 @@ class UsersList extends Component {
     }
     return (
       <div>
-        <h1>Users</h1>
         <Table compact celled definition>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>ID</Table.HeaderCell>
               <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Registration Date</Table.HeaderCell>
               <Table.HeaderCell>E-mail address</Table.HeaderCell>
+              <Table.HeaderCell>Registration Date</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -48,8 +48,10 @@ class UsersList extends Component {
                     {user.firstName} {user.lastName}
                   </Link>
                 </Table.Cell>
-                <Table.Cell>{user.createdAt}</Table.Cell>
                 <Table.Cell>{user.email}</Table.Cell>
+                <Table.Cell>
+                  {moment(user.createdAt).format('MMMM Do YYYY, HH:mm')}
+                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
