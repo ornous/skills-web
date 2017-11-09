@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
+import { Segment, Loader } from 'semantic-ui-react'
 import gql from 'graphql-tag'
 import UsersList from 'components/UsersList'
 
@@ -11,7 +12,13 @@ class UsersListContainer extends Component {
   render () {
     const { loading, people, error } = this.props
     if (loading) {
-      return <div>Loading users...</div>
+      return (
+        <Segment>
+          <Loader active />
+
+          <div>Loading users...</div>
+        </Segment>
+      )
     }
 
     if (error) {

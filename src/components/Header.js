@@ -36,11 +36,11 @@ const Header = styled.div`
         text-align: center;
 
         a {
+          height: 100%;
           display: block;
           width: 100%;
-          height: 100%;
           padding: 5px;
-          color: ${props => props.theme.body.background};
+          color: #c4baa0;
 
           &:hover {
             background-color: ${props => props.theme.secondary};
@@ -48,6 +48,7 @@ const Header = styled.div`
 
           &.active {
             background-color: ${props => props.theme.secondary};
+            color: ${props => props.theme.body.background};
           }
         }
       }
