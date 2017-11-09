@@ -13,6 +13,9 @@ import Wrapper from 'components/Wrapper'
 import NavLink from 'components/NavLink'
 import theme from '../themes/default'
 
+import 'semantic-ui-css/semantic.min.css'
+import '../index.css'
+
 class App extends PureComponent {
   render () {
     return (

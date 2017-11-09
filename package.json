@@ -125,6 +125,9 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "react-hot-loader/babel"
     ]
   },
   "lint-staged": {
@@ -141,6 +144,7 @@
     "@storybook/react": "^3.2.14",
     "install-peers": "^1.0.2",
     "jest-styled-components": "^4.9.0",
+    "react-hot-loader": "^3.1.2",
     "storybook-addon-jsx": "^5.0.0",
     "storybook-addon-specifications": "^2.1.1",
     "storybook-chrome-screenshot": "^0.6.1",
