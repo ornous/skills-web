@@ -47,7 +47,7 @@ class UsersListContainer extends Component {
         <p>Last Name: {user.lastName}</p>
         <p>Email Address: {user.email}</p>
         Skills:
-        <List celled horizontal>
+        <List celled horizontal animated>
           {user.skills.map(skill => (
             <List.Item key={skill.id}>
               {skill.name + ' '}

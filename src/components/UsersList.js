@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import { Button, Icon, Menu, Table } from 'semantic-ui-react'
+import { Button, Icon, Label, Menu, Table } from 'semantic-ui-react'
+
+import CreateUserModal from 'components/CreateUserModal'
 
 class UsersList extends Component {
   constructor (props) {
@@ -12,7 +14,16 @@ class UsersList extends Component {
   }
 
   handlePageChange (event, data) {
-    console.log(data)
+    let newPage
+    if (event.target.dataset.page === 'prev') {
+      newPage = this.state.page - 1
+    } else if (event.target.dataset.page === 'next') {
+      newPage = this.state.page + 1
+    } else {
+      newPage = parseInt(event.target.dataset.page, 10)
+    }
+
+    this.setState({ page: newPage })
   }
 
   render () {
@@ -21,19 +32,50 @@ class UsersList extends Component {
     const users = this.props.users.slice((page - 1) * perPage, page * perPage)
     const pageCount = Math.ceil(this.props.users.length / perPage)
     const pages = []
+    pages.push(
+      <Menu.Item
+        as='a'
+        key='prev'
+        data-page='prev'
+        onClick={this.handlePageChange}
+        icon
+        disabled={page === 1}
+      >
+        <Icon name='left chevron' />
+      </Menu.Item>
+    )
+
     for (let index = 0; index < pageCount; ++index) {
       pages.push(
-        <Menu.Item as='a' key={index} onClick={this.handlePageChange}>
+        <Menu.Item
+          as='a'
+          key={index}
+          data-page={index + 1}
+          onClick={this.handlePageChange}
+          active={this.state.page === index + 1}
+        >
           {index + 1}
         </Menu.Item>
       )
     }
+    pages.push(
+      <Menu.Item
+        as='a'
+        key='next'
+        data-page='next'
+        onClick={this.handlePageChange}
+        icon
+        disabled={page === pageCount}
+      >
+        <Icon name='right chevron' />
+      </Menu.Item>
+    )
+
     return (
       <div>
-        <Table compact celled definition>
+        <Table striped color='teal'>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>ID</Table.HeaderCell>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>E-mail address</Table.HeaderCell>
               <Table.HeaderCell>Registration Date</Table.HeaderCell>
@@ -42,8 +84,10 @@ class UsersList extends Component {
           <Table.Body>
             {users.map(user => (
               <Table.Row key={user.id}>
-                <Table.Cell>{user.id}</Table.Cell>
                 <Table.Cell>
+                  {user.email === 'snekshaark@gmail.com' && (
+                    <Label ribbon>you</Label>
+                  )}
                   <Link to={`/users/${user.id}`}>
                     {user.firstName} {user.lastName}
                   </Link>
@@ -58,17 +102,9 @@ class UsersList extends Component {
           <Table.Footer fullWidth>
             <Table.Row>
               <Table.HeaderCell colSpan='4'>
-                <Button icon labelPosition='left' primary size='small'>
-                  <Icon name='user' /> Add User
-                </Button>
+                <CreateUserModal />
                 <Menu floated='right' pagination>
-                  <Menu.Item as='a' icon>
-                    <Icon name='left chevron' />
-                  </Menu.Item>
                   {pages}
-                  <Menu.Item as='a' icon>
-                    <Icon name='right chevron' />
-                  </Menu.Item>
                 </Menu>
               </Table.HeaderCell>
             </Table.Row>

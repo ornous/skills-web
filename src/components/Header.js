@@ -50,6 +50,24 @@ const Header = styled.div`
             background-color: ${props => props.theme.secondary};
             color: ${props => props.theme.body.background};
           }
+
+          i {
+            display: none;
+          }
+
+          span {
+            display: inline;
+          }
+
+          ${media.tablet`
+            i {
+              display: inline;
+            }
+
+            span {
+              display: none;
+            }
+          `};
         }
       }
     }

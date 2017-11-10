@@ -12,6 +12,7 @@ import Footer from 'components/Footer'
 import Wrapper from 'components/Wrapper'
 import NavLink from 'components/NavLink'
 import theme from '../themes/default'
+import { Icon } from 'semantic-ui-react'
 
 import 'semantic-ui-css/semantic.min.css'
 import '../index.css'
@@ -30,14 +31,21 @@ class App extends PureComponent {
                 <ul>
                   <li>
                     <NavLink exact to='/'>
-                      Home
+                      <Icon name='home' />
+                      <span>Home</span>
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to='/users'>Users</NavLink>
+                    <NavLink to='/users'>
+                      <Icon name='users' />
+                      <span>Users</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to='/about'>About Us</NavLink>
+                    <NavLink to='/about'>
+                      <Icon name='info circle' />
+                      <span>About Us</span>
+                    </NavLink>
                   </li>
                 </ul>
               </nav>
