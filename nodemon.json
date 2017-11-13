@@ -1,4 +1,10 @@
 {
   "verbose": true,
-  "ignore": ["src/", "scripts/*"]
+  "watch": [
+    "node_modules"
+  ],
+  "ignore": ["src/", "scripts/*"],
+  "env": {
+    "NODE_ENV": "development"
+  }
 }
